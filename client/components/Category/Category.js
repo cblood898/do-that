@@ -8,16 +8,25 @@ class Category extends React.Component{
         this.state = {categoryID: this.props.catID, thingsTodo: [{ _id: "aawdqwd23r23rfe", name: "Johnny's Pizza", description: "yummy"}]}
     }
 
-    addThing = (name) => {
-        let { catId } = this.props;
-      $.ajax({
-        url: '/lists',
-        type: 'POST',
-        data: {catId, name, description }
-      }).done (list => {
-        this.setState({lists: {...this.state.lists, list } });
-      });
-    }
+addThing = (e) => {
+  e.preventDefault();
+  $.ajax({
+    url: '/lists',
+    type: 'POST',
+    data: {name}
+  }).done (list => {
+    this.setState({lists: {...this.state.lists, list });
+  });
+}
+
+deleteBoard = (id) => {
+  $.ajax({
+    url: `/lists/${id}`,
+    type: 'DELETE'
+  }).done( () => {
+    this.setState({ boards: this.state.lists.filter( b => b._id !== id ) });
+  });
+}
 
     render() {
         let { id, name } = this.props;
