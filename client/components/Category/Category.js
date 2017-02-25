@@ -1,4 +1,5 @@
 import React from 'react';
+import Form from '../Form';
 
 class Category extends React.Component{
     constructor(props){
@@ -10,6 +11,7 @@ class Category extends React.Component{
         let { deleteCategory, _id} = this.props;
         return (
             <div>
+            <p>I am a category!</p>
             <a onClick={ () => deleteCategory(_id) }>Delete</a>
             <a href={`/catgories/${_id}`}>Show</a>
             </div>

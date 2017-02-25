@@ -1,5 +1,5 @@
 import React from 'react';
-import Categories from './Category/Categories';
+import Categories from '../category/Categories';
 
 class Place extends React.Component {
 	render(){
