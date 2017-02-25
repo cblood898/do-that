@@ -1,5 +1,6 @@
 import React from 'react';
 import Form from '../Form';
+import List from '../lists/list';
 
 class Category extends React.Component{
     constructor(props){
@@ -28,7 +29,7 @@ class Category extends React.Component{
                         { /* the name here gets passed down thru the props */ }
                         <span className="card-title">{name}</span>
                         <Form />
-
+                        <List />
                     </div>
                 </div>
             </div>
