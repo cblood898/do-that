@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 
 router.get('/', (req, res) => {
-  List.find({ : req.query.boardId }, ( err, boards ) => {
+  List.find({ listId: req.query.boardId }, ( err, boards ) => {
     res.json(boards);
   });
 });
