@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const List = require('../models/List')
+const List = require('../models/list')
 
 router.get('/', (req, res) => {
   List.find( ( err, lists ) => {

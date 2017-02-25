@@ -24,7 +24,7 @@ class Category extends React.Component{
         type: 'POST',
         data: {name}
       }).done (list => {
-        this.setState({lists: {...this.state.lists, list }});
+        this.setState({lists: {...this.state.lists, lists }});
       });
     }
 
