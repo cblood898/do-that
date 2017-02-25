@@ -19,7 +19,7 @@ class Places extends React.Component {
 		// });
 
 		return(
-			<div className="places">
+			<div className="places container">
 				<Place />
 			</div>
 		)
