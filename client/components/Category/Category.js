@@ -18,14 +18,13 @@ class Category extends React.Component{
       });
     }
 
-    addThing = (e) => {
-      e.preventDefault();
+    addThing = (name) => {
       $.ajax({
         url: '/lists',
         type: 'POST',
         data: {name}
       }).done (list => {
-        this.setState({lists: {...this.state.lists, list }});
+        this.setState({lists: {...this.state.lists, lists }});
       });
     }
 
@@ -63,7 +62,7 @@ class Category extends React.Component{
                     <div className="card-content white-text">
                         { /* the name here gets passed down thru the props */ }
                         <span className="card-title">{name}</span>
-                        <Form />
+                        <Form add={this.addThing}/>
                         <List />
                     </div>
                 </div>

@@ -32,9 +32,9 @@ router.delete('/:id', (req, res) => {
   List.findById(boardId, (err, list) => {
     list.remove();
     // List.find({ boardId }, (err, lists) => {
-    //   lists.forEach( list => { 
+    //   lists.forEach( list => {
     //     Card.find({'listId': list._id}).remove().exec();
-    //     list.remove() 
+    //     list.remove()
     //   } );
     // });
     res.status(200).send({success: true});
