@@ -5,6 +5,18 @@ class Category extends React.Component{
     constructor(props){
         super(props);
         this.input;
+        this.state = {categoryID: this.props.catID, thingsTodo: [{ _id: "aawdqwd23r23rfe", name: "Johnny's Pizza", description: "yummy"}]}
+    }
+
+    addThing = (name) => {
+        let { catId } = this.props;
+      $.ajax({
+        url: '/lists',
+        type: 'POST',
+        data: {catId, name, description }
+      }).done (list => {
+        this.setState({lists: {...this.state.lists, list } });
+      });
     }
 
     render() {
@@ -16,6 +28,7 @@ class Category extends React.Component{
                         { /* the name here gets passed down thru the props */ }
                         <span className="card-title">{name}</span>
                         <Form />
+
                     </div>
                 </div>
             </div>
