@@ -9,25 +9,51 @@ class Category extends React.Component{
         this.state = {categoryID: this.props.catID, thingsTodo: [{ _id: "aawdqwd23r23rfe", name: "Johnny's Pizza", description: "yummy"}]}
     }
 
-addThing = (e) => {
-  e.preventDefault();
+    componentDidMount() {
+      $.ajax({
+        url: '/lists',
+        type: 'GET'
+      }).done( lists => {
+        this.setState({ lists });
+      });
+    }
+
+    addThing = (e) => {
+      e.preventDefault();
+      $.ajax({
+        url: '/lists',
+        type: 'POST',
+        data: {name}
+      }).done (list => {
+        this.setState({lists: {...this.state.lists, list }});
+      });
+    }
+
+    updateThing = (board) => {
+  let { _id, name } = board;
   $.ajax({
-    url: '/lists',
-    type: 'POST',
-    data: {name}
-  }).done (list => {
-    this.setState({lists: {...this.state.lists, list });
+    url: `/lists/${_id}`,
+    type: 'PUT',
+    data: { name }
+  }).done( list => {
+    let boards = this.state.lists.map( b => {
+      if (b._id === _id)
+        return lists
+      return b
+    });
+
+    this.setState({ lists });
   });
 }
 
-deleteBoard = (id) => {
-  $.ajax({
-    url: `/lists/${id}`,
-    type: 'DELETE'
-  }).done( () => {
-    this.setState({ boards: this.state.lists.filter( b => b._id !== id ) });
-  });
-}
+    deleteThing = (id) => {
+      $.ajax({
+        url: `/lists/${id}`,
+        type: 'DELETE'
+      }).done( () => {
+        this.setState({ boards: this.state.lists.filter( b => b._id !== id ) });
+      });
+    }
 
     render() {
         let { id, name } = this.props;
