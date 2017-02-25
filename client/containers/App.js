@@ -1,14 +1,18 @@
 import React from 'react';
+<<<<<<< HEAD
 import Intro from '../components/Intro';
+=======
+import Nav from '../components/Nav';
+// import Intro from '../components/Intro';
+import Places from '../components/places/Places';
+>>>>>>> 5663d8d4b078336ad41342cc3e8d6f0505cc46fc
 
 class App extends React.Component {
-  componentDidMount() {
-    $(".button-collapse").sideNav();
-  }
 
   render() {
     return (
       <div>
+<<<<<<< HEAD
         <nav>
           <div className="nav-wrapper">
             <a href="#!" className="brand-logo">Logo</a>
@@ -22,6 +26,10 @@ class App extends React.Component {
           </div>
         </nav>
         <Intro />
+=======
+        <Nav />
+        <Places />
+>>>>>>> 5663d8d4b078336ad41342cc3e8d6f0505cc46fc
       </div>
     );
   }
