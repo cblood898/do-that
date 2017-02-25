@@ -6,7 +6,7 @@ class Selection extends React.Component {
   }
   render() {
     return (
-      <button onClick={this.find}>Salt Lake City</button>
+      <button onClick={this.find} className="btn-large waves-effect waves-light cyan darken-1">Salt Lake City</button>
     )
   }
 }
