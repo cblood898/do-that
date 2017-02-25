@@ -32,11 +32,8 @@ class Nav extends React.Component {
 
 <nav className="cyan darken-2" role="navigation">
     <div className="nav-wrapper container">
-      <a id="logo-container" href="/" className="brand-logo"><img style={{margin:"5px", height:"50px"}}src="images/Group.png"/></a>
-      <ul className="right hide-on-med-and-down">
-        <li><a href="/">Menu 1</a></li>
-        <li><a href="/">Menu 2</a></li>
-      </ul>
+      <a id="logo-container" href="/" className="brand-logo center"><img style={{margin:"5px", height:"50px"}}src="images/Group.png"/></a>
+  
 
       <ul id="nav-mobile" className="side-nav">
         <li><a href="/">Menu 1</a></li>

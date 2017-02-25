@@ -17,9 +17,9 @@ class Intro extends React.Component {
     <div className="section no-pad-bot">
       <div className="container">
         <br /><br />
-        <h1 className="header center  cyan-text text-darken-1"> Find something to do near you.</h1>
+        <h2 className="header center  white-text text-darken-1"> Discover something random to do.</h2>
         <div className="row center">
-          <h5 className="header col s12 grey-text text-darken-2">Pick a Place </h5>
+          <h5 className="header col s12 white-text text-darken-2">Pick a Place </h5>
         </div>
         <div className="row center">
            <Selection />
@@ -29,7 +29,7 @@ class Intro extends React.Component {
       </div>
     </div>
    
-<div className="parallax"><img style={{opacity: "0.5"}} src="/images/SLC.jpg" alt="Unsplashed background img 1" /></div>
+<div className="parallax"><img  src="/images/SLC.png" alt="Unsplashed background img 1" /></div>
     
   </div> 
    
