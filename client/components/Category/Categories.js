@@ -4,7 +4,7 @@ import Category from './Category';
 class Categories extends React.Component {
     constructor(props) {
         super(props);
-        this.state = { categories: [ { catId: 1, name: "Food"}, { catId: 2, name: "Outdoor"}, { catId: 3, name: "Events"} ] }
+        this.state = { categories: [ { catId: 1, name: "Food"}] }
     }
     render() {
     let categories = this.state.categories.map( category => {

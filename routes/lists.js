@@ -12,6 +12,7 @@ router.post('/', (req, res) => {
   new List({
     name: req.body.name
   }).save( (err, list) => {
+    console.log(list);
     res.json(list);
   });
 });

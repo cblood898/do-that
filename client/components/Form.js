@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Form = ({ add, placeholder }) => {
+const Form = ({ add }) => {
     let input;
 
     return (
@@ -12,7 +12,7 @@ const Form = ({ add, placeholder }) => {
         }}
         >
             <input
-                placeholder={placeholder}
+                placeholder="Add a thing to do"
                 ref={ n => input = n }
                 required
                 />

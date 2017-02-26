@@ -6,7 +6,7 @@ class Category extends React.Component{
     constructor(props){
         super(props);
         this.input;
-        this.state = {categoryID: this.props.catID, thingsTodo: [{ _id: "aawdqwd23r23rfe", name: "Johnny's Pizza", description: "yummy"}]}
+        this.state = { lists: [] }
     }
 
     componentDidMount() {
@@ -22,48 +22,42 @@ class Category extends React.Component{
       $.ajax({
         url: '/lists',
         type: 'POST',
-        data: {name}
+        data: {name: name , catId: this.props.catId }
       }).done (list => {
-        this.setState({lists: {...this.state.lists, lists }});
+        this.setState({lists: [...this.state.lists, list ] });
       });
     }
 
-    updateThing = (board) => {
-  let { _id, name } = board;
-  $.ajax({
-    url: `/lists/${_id}`,
-    type: 'PUT',
-    data: { name }
-  }).done( list => {
-    let boards = this.state.lists.map( b => {
-      if (b._id === _id)
-        return lists
-      return b
-    });
-
-    this.setState({ lists });
-  });
-}
-
     deleteThing = (id) => {
+        console.log("you called the delete function!");
       $.ajax({
         url: `/lists/${id}`,
         type: 'DELETE'
       }).done( () => {
-        this.setState({ boards: this.state.lists.filter( b => b._id !== id ) });
+        this.setState({ lists: this.state.lists.filter( b => b._id !== id ) });
       });
     }
 
     render() {
-        let { id, name } = this.props;
+        let { catId, name } = this.props;
+        let lists = this.state.lists.map( list => {
+            return(
+                <List 
+                    key={list._id}
+                    deleteThing={this.deleteThing}
+                    updateThing={this.updateThing}
+                    {...list}
+                />
+            )
+        });
         return (
-            <div className="col sm12 m4">
+            <div className="col sm12 m12">
                 <div className="card blue-grey darken-2">
                     <div className="card-content white-text">
                         { /* the name here gets passed down thru the props */ }
                         <span className="card-title">{name}</span>
                         <Form add={this.addThing}/>
-                        <List />
+                        { lists }
                     </div>
                 </div>
             </div>
